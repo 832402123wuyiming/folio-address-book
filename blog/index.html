@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="WuYiming's English EE308FZ Extreme Programming report for Folio Address Book.">
+  <title>Folio Address Book | Assignment Blog</title>
+  <link rel="canonical" href="https://832402123wuyiming.github.io/folio-address-book/blog/">
+  <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+<header class="site-header">
+  <nav aria-label="Project navigation">
+    <a class="brand" href="./"><span aria-hidden="true">F</span>Folio</a>
+    <a class="open-app" href="../">Open address book</a>
+  </nav>
+</header>
+<main>
+<article>
+<h1 dir="auto">Folio Address Book</h1>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>Item</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Course</td>
+<td><a href="https://bbs.csdn.net/forums/2601_MU_SE_FZU" rel="nofollow">EE308FZ Software Engineering (FZU–MU)</a></td>
+</tr>
+<tr>
+<td>Student</td>
+<td>WuYiming</td>
+</tr>
+<tr>
+<td>FZU student ID</td>
+<td>832402123</td>
+</tr>
+<tr>
+<td>Team name</td>
+<td>Folio (individual project)</td>
+</tr>
+<tr>
+<td>Assignment</td>
+<td><a href="https://bbs.csdn.net/topics/620593436" rel="nofollow">Extreme Programming</a></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>Build a usable address book with favorites, multiple contact methods, and Excel import/export. Record the design, Git workflow, and verification.</td>
+</tr>
+<tr>
+<td>References</td>
+<td><a href="https://docs.sheetjs.com/docs/getting-started/installation/standalone/" rel="nofollow">SheetJS standalone library</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" rel="nofollow">Web Storage API</a></td>
+</tr>
+</tbody>
+</table></div></markdown-accessiblity-table>
+<h2 id="contents">Contents</h2>
+<ol dir="auto">
+<li><a href="#project-and-evidence-links">Project and evidence links</a></li>
+<li><a href="#functional-design">Functional design</a></li>
+<li><a href="#verification-and-screenshots">Verification and screenshots</a></li>
+<li><a href="#git-and-project-ownership">Git and project ownership</a></li>
+<li><a href="#personal-software-process">Personal Software Process</a></li>
+<li><a href="#challenges-and-rubric-check">Challenges and rubric check</a></li>
+</ol>
+<h2 id="project-and-evidence-links">Project and evidence links</h2>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>Item</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub repository</td>
+<td><a href="https://github.com/832402123wuyiming/folio-address-book">Folio source</a></td>
+</tr>
+<tr>
+<td>Pull request</td>
+<td><a href="https://github.com/832402123wuyiming/folio-address-book/pull/1" data-hovercard-type="pull_request" data-hovercard-url="/832402123wuyiming/folio-address-book/pull/1/hovercard">Implementation PR</a></td>
+</tr>
+<tr>
+<td>GitHub Release</td>
+<td><a href="https://github.com/832402123wuyiming/folio-address-book/releases/tag/v1.0.0">Folio v1.0.0</a></td>
+</tr>
+<tr>
+<td>Code standards</td>
+<td><a href="https://github.com/832402123wuyiming/folio-address-book/blob/main/CODE_STANDARDS.md">CODE_STANDARDS.md</a></td>
+</tr>
+<tr>
+<td>Full program walkthrough</td>
+<td><a href="evidence/folio-walkthrough.mp4">Download MP4</a></td>
+</tr>
+<tr>
+<td>Public deployment</td>
+<td><a href="https://832402123wuyiming.github.io/folio-address-book/" rel="nofollow">Folio on GitHub Pages</a></td>
+</tr>
+<tr>
+<td>Local execution</td>
+<td>See the <a href="https://github.com/832402123wuyiming/folio-address-book/blob/main/README.md#run">README</a></td>
+</tr>
+</tbody>
+</table></div></markdown-accessiblity-table>
+<h2 id="functional-design">Functional design</h2>
+<p dir="auto"><strong>Interface.</strong> The address book uses a responsive card grid with all contacts and favorites views, summary counts, and a search field. The form supports adding and removing contact methods as needed. Contact values render as text, and the menu and star controls expose their selected state to assistive technologies.</p>
+<p dir="auto"><strong>Favorites.</strong> Each contact stores a Boolean favorite value. Clicking a card’s star saves the new value to browser storage. The Favorites view applies this flag together with the current search query, so users can search inside their favorites.</p>
+<p dir="auto"><strong>Multiple contact methods.</strong> Each contact has a list of <code class="notranslate">{ type, value }</code> entries. This allows a contact to hold two phone numbers, one email address, and a social handle without layout or storage changes. The supported categories are Phone, Email, Social, Address, and Other. Editing a contact preserves its favorite state.</p>
+<p dir="auto"><strong>Excel exchange.</strong> A workbook has one row per contact and separate columns for each category. Each populated method column uses a JSON array of strings on export. This preserves repeated values, leading zeros, and punctuation. Import also accepts individual values and newline-separated lists in a cell. It validates all populated rows before appending anything to browser storage.</p>
+<p dir="auto"><strong>Module boundaries.</strong> <code class="notranslate">app.mjs</code> manages rendering and interaction. <code class="notranslate">data.mjs</code> defines contact records, filtering, and storage. <code class="notranslate">excel.mjs</code> maps records to and from the workbook. SheetJS is included locally. Web hosting only needs to serve the files in <code class="notranslate">dist/</code>.</p>
+<h2 id="verification-and-screenshots">Verification and screenshots</h2>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>Check</th>
+<th>Observed result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create and edit</td>
+<td>Created a test contact with two phone numbers and an email address, then saved an edit.</td>
+</tr>
+<tr>
+<td>Favorites and search</td>
+<td>Starred the test contact, filtered to favorites, and found it by phone number.</td>
+</tr>
+<tr>
+<td>Persistence</td>
+<td>Reloaded the page and confirmed that the favorite and the phone numbers remained.</td>
+</tr>
+<tr>
+<td>Excel exchange</td>
+<td>Downloaded an <code class="notranslate">.xlsx</code> file, deleted the test contact, and restored it by importing that file. Both phone numbers and the favorite were restored.</td>
+</tr>
+<tr>
+<td>Failed import</td>
+<td>Rejected an invalid <code class="notranslate">.xlsx</code> without changing the contact count.</td>
+</tr>
+<tr>
+<td>Mobile layout</td>
+<td>Checked at 390 CSS pixels and confirmed the view fits the screen width.</td>
+</tr>
+<tr>
+<td>Automated tests</td>
+<td>Five Node.js tests passed against the vendored SheetJS library.</td>
+</tr>
+</tbody>
+</table></div></markdown-accessiblity-table>
+<h3 id="address-book">Address book</h3>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="evidence/02-directory.png"><img loading="lazy" src="evidence/02-directory.png" alt="Folio with four fictional sample contacts" style="max-width: 100%;"></a></p>
+<h3 id="multiple-contact-methods">Multiple contact methods</h3>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="evidence/03-contact-editor.png"><img loading="lazy" src="evidence/03-contact-editor.png" alt="Editor with two phone numbers and one email address" style="max-width: 100%;"></a></p>
+<h3 id="favorites">Favorites</h3>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="evidence/04-favorites.png"><img loading="lazy" src="evidence/04-favorites.png" alt="Favorites view with three starred contacts" style="max-width: 100%;"></a></p>
+<h3 id="excel-import">Excel import</h3>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="evidence/05-excel-import.png"><img loading="lazy" src="evidence/05-excel-import.png" alt="Import confirmation after reopening the exported workbook" style="max-width: 100%;"></a></p>
+<p dir="auto">Additional evidence includes the <a href="evidence/01-empty.png">empty state</a> and the <a href="evidence/06-mobile.png">mobile layout</a>. The <a href="evidence/folio-walkthrough.mp4">continuous browser walkthrough</a> shows sample data, editing, favorites, search, reload, download, deletion, import, and invalid-file handling.</p>
+<figure><video controls preload="metadata" src="evidence/folio-walkthrough.mp4" aria-label="Folio program walkthrough"></video><figcaption>Program walkthrough</figcaption></figure>
+<h2 id="git-and-project-ownership">Git and project ownership</h2>
+<p dir="auto">This is an individual submission. The project was prepared with Codex assistance. No pair-programming sessions, partner contributions, or review approvals are recorded. The branch and its feature, test, and documentation commits provide the local development history.</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>Contributor in recorded Git history</th>
+<th align="right">Commits in the GitHub screenshot</th>
+<th>Areas covered</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Codex</td>
+<td align="right">4</td>
+<td>Project setup, implementation, tests, and documentation</td>
+</tr>
+</tbody>
+</table></div></markdown-accessiblity-table>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="evidence/08-github-commits.png"><img loading="lazy" src="evidence/08-github-commits.png" alt="GitHub commit history for Folio" style="max-width: 100%;"></a></p>
+<p dir="auto">The screenshot captures four commits on the feature branch before the publication documentation update. See the <a href="https://github.com/832402123wuyiming/folio-address-book/commits/main/">GitHub commit history</a> for the current record.</p>
+<h2 id="personal-software-process">Personal Software Process</h2>
+<p dir="auto">This table records the planned effort. Actual student time has not been supplied.</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>PSP activity</th>
+<th align="right">Planned time (minutes)</th>
+<th>Student actual time (minutes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Planning and requirements</td>
+<td align="right">20</td>
+<td>Unrecorded</td>
+</tr>
+<tr>
+<td>Design and module boundaries</td>
+<td align="right">25</td>
+<td>Unrecorded</td>
+</tr>
+<tr>
+<td>Contact management and responsive interface</td>
+<td align="right">55</td>
+<td>Unrecorded</td>
+</tr>
+<tr>
+<td>Excel import/export</td>
+<td align="right">45</td>
+<td>Unrecorded</td>
+</tr>
+<tr>
+<td>Testing and demo recording</td>
+<td align="right">40</td>
+<td>Unrecorded</td>
+</tr>
+<tr>
+<td>Documentation and release preparation</td>
+<td align="right">35</td>
+<td>Unrecorded</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td align="right"><strong>220</strong></td>
+<td><strong>Unrecorded</strong></td>
+</tr>
+</tbody>
+</table></div></markdown-accessiblity-table>
+<h2 id="challenges-and-rubric-check">Challenges and rubric check</h2>
+<p dir="auto">A single spreadsheet cell must hold several values of a given method type. Using punctuation as a separator can split legitimate addresses and account handles. JSON arrays make the exported format unambiguous, and support for line breaks keeps hand-edited workbooks straightforward.</p>
+<p dir="auto">Import validation runs before the browser state is updated. If a row is missing a name or contains malformed method data, the application reports the row and preserves the existing contacts.</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>Rubric item</th>
+<th>Submission evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Markdown blog, repository, coding standards</td>
+<td>The blog, code standards, repository, pull request, and release are linked above.</td>
+</tr>
+<tr>
+<td>Implementation explanation and program screenshots</td>
+<td>Functional design, screenshots, and MP4 are included.</td>
+</tr>
+<tr>
+<td>Page style</td>
+<td>Desktop and mobile screenshots are included.</td>
+</tr>
+<tr>
+<td>Favorite contacts</td>
+<td>Star controls, Favorites view, and persistence are verified.</td>
+</tr>
+<tr>
+<td>Multiple methods</td>
+<td>Repeated phone numbers and multiple categories were verified.</td>
+</tr>
+<tr>
+<td>Excel import/export</td>
+<td>Workbook round-trip and invalid-file handling were verified.</td>
+</tr>
+<tr>
+<td>Optional cloud deployment</td>
+<td>The static site is publicly hosted on GitHub Pages.</td>
+</tr>
+</tbody>
+</table></div></markdown-accessiblity-table>
+
+</article>
+</main>
+</body>
+</html>
