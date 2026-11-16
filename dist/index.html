@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A local-first contact book with favorites and Excel import and export.">
+  <title>Folio | Address Book</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="vendor/xlsx.mini.min.js"></script>
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="./" aria-label="Folio home"><span class="logo" aria-hidden="true">F</span>Folio</a>
+    <nav aria-label="Address book views">
+      <button class="nav-button" id="all" type="button" aria-pressed="true"><span aria-hidden="true">&#9638;</span>All contacts</button>
+      <button class="nav-button" id="favorites" type="button" aria-pressed="false"><span aria-hidden="true">&#9734;</span>Favorites</button>
+    </nav>
+    <div class="owner"><span class="owner-avatar">WY</span><div><strong>WuYiming</strong><small>832402123</small></div></div>
+  </aside>
+  <main>
+    <header class="topbar"><span class="eyebrow">WORKSPACE</span><span class="storage"><i></i>Stored on this device</span></header>
+    <div class="content">
+      <header class="heading"><div><h1 id="view-title">Address book</h1><p>Find and organize the people you keep in touch with.</p></div><button class="primary" id="add" type="button"><span aria-hidden="true">+</span> Add contact</button></header>
+      <section class="metrics" aria-label="Address book totals">
+        <div><span>Contacts</span><strong id="total">0</strong></div>
+        <div><span>Favorites</span><strong id="star-total">0</strong></div>
+        <div><span>Contact methods</span><strong id="method-total">0</strong></div>
+      </section>
+      <div class="toolbar">
+        <label class="search"><span aria-hidden="true">&#9906;</span><input id="search" type="search" aria-label="Search contacts" placeholder="Search contacts"></label>
+        <div class="actions">
+          <input id="file" type="file" accept=".xlsx" hidden>
+          <button id="import" type="button">Import Excel</button>
+          <button id="export" type="button">Export Excel</button>
+        </div>
+      </div>
+      <p id="status" role="status" aria-live="polite"></p>
+      <section id="cards" class="cards" aria-label="Contacts"></section>
+      <section id="empty" class="empty" hidden><span aria-hidden="true">&#9638;</span><h2 id="empty-title"></h2><p id="empty-copy"></p><button type="button" id="sample">Load sample contacts</button></section>
+    </div>
+  </main>
+  <dialog id="editor" aria-labelledby="editor-title">
+    <form id="contact-form">
+      <div class="dialog-heading"><h2 id="editor-title">New contact</h2><button id="close" type="button" aria-label="Close editor">&#215;</button></div>
+      <div class="fields">
+        <label>Full name <input name="name" required maxlength="120" autocomplete="off"></label>
+        <label>Organization <input name="organization" maxlength="120"></label>
+        <label>Job title <input name="jobTitle" maxlength="120"></label>
+        <label>Notes <textarea name="notes" rows="2" maxlength="1500"></textarea></label>
+      </div>
+      <div class="method-heading"><h3>Contact methods</h3><button type="button" id="add-method">+ Add method</button></div>
+      <div id="methods"></div>
+      <div class="dialog-actions"><button type="button" id="cancel">Cancel</button><button class="primary" type="submit">Save contact</button></div>
+    </form>
+  </dialog>
+</body>
+</html>
+
