@@ -1,6 +1,6 @@
 # Cloud Deployment
 
-The website consists of the files in `dist/`. Serve them unchanged using Nginx on an Ubuntu instance on Alibaba Cloud ECS or Huawei Cloud ECS. The website needs no Node.js process, application database, or runtime credentials.
+The website consists of the files in `dist/`. The production demo runs on [GitHub Pages](https://832402123wuyiming.github.io/folio-address-book/). Its gh-pages branch publishes those files from the root directory. The steps below also work on a dedicated Ubuntu server with Nginx. The website needs no Node.js process, application database, or runtime credentials.
 
 ## Prepare the instance
 
@@ -37,5 +37,5 @@ curl -fI http://PUBLIC_IP/app.mjs
 
 If the module does not return a JavaScript Content-Type, add an `mjs` association to the active Nginx JavaScript type in `/etc/nginx/mime.types` (for example, `application/javascript js mjs;`), run `sudo nginx -t`, and reload Nginx. Share the public address once these checks pass.
 
-[Alibaba Cloud ECS website guide](https://www.alibabacloud.com/help/en/ecs/user-guide/build-a-website/)
+[GitHub Pages publishing source](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 

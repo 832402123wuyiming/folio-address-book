@@ -23,12 +23,12 @@
 
 | Item | Location |
 | --- | --- |
-| GitHub repository | Pending authenticated publication |
-| Pull request | Pending authenticated publication |
-| GitHub Release | Pending authenticated publication |
+| GitHub repository | [Folio source](https://github.com/832402123wuyiming/folio-address-book) |
+| Pull request | [Implementation PR](https://github.com/832402123wuyiming/folio-address-book/pull/1) |
+| GitHub Release | [Folio v1.0.0](https://github.com/832402123wuyiming/folio-address-book/releases/tag/v1.0.0) |
 | Code standards | [CODE_STANDARDS.md](CODE_STANDARDS.md) |
 | Full program walkthrough | [Download MP4](evidence/folio-walkthrough.mp4) |
-| Public instance | Pending cloud provisioning and public verification |
+| Public deployment | [Folio on GitHub Pages](https://832402123wuyiming.github.io/folio-address-book/) |
 | Local execution | See the [README](README.md#run) |
 
 ## Functional design
@@ -77,13 +77,13 @@ Additional evidence includes the [empty state](evidence/01-empty.png) and the [m
 
 This is an individual submission. The project was prepared with Codex assistance. No pair-programming sessions, partner contributions, or review approvals are recorded. The branch and its feature, test, and documentation commits provide the local development history.
 
-| Contributor in recorded Git history | Commits in the local screenshot | Areas covered |
+| Contributor in recorded Git history | Commits in the GitHub screenshot | Areas covered |
 | --- | ---: | --- |
-| Codex | 3 | Project setup, implementation, and automated tests |
+| Codex | 4 | Project setup, implementation, tests, and documentation |
 
-![Local Git history for Folio](evidence/07-local-git-history.png)
+![GitHub commit history for Folio](evidence/08-github-commits.png)
 
-The screenshot captures the local history before the documentation and evidence commit. Add a screenshot of the published GitHub commits page and record the final contributor counts when the repository is online.
+The screenshot captures four commits on the feature branch before the publication documentation update. See the [GitHub commit history](https://github.com/832402123wuyiming/folio-address-book/commits/main/) for the current record.
 
 ## Personal Software Process
 
@@ -107,11 +107,11 @@ Import validation runs before the browser state is updated. If a row is missing 
 
 | Rubric item | Submission evidence |
 | --- | --- |
-| Markdown blog, repository, coding standards | Blog and standards are included. GitHub publication is pending. |
+| Markdown blog, repository, coding standards | The blog, code standards, repository, pull request, and release are linked above. |
 | Implementation explanation and program screenshots | Functional design, screenshots, and MP4 are included. |
 | Page style | Desktop and mobile screenshots are included. |
 | Favorite contacts | Star controls, Favorites view, and persistence are verified. |
 | Multiple methods | Repeated phone numbers and multiple categories were verified. |
 | Excel import/export | Workbook round-trip and invalid-file handling were verified. |
-| Optional cloud deployment | Public ECS instance and URL are pending. |
+| Optional cloud deployment | The static site is publicly hosted on GitHub Pages. |
 

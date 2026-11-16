@@ -5,6 +5,8 @@
 
 Folio is a browser-based address book with favorites, multiple contact methods per person, and Excel import/export. It starts empty and offers synthetic sample contacts for evaluation.
 
+[Open the public demo](https://832402123wuyiming.github.io/folio-address-book/)
+
 ## Run
 
 Run the following in the project directory, then open http://127.0.0.1:5173.
