@@ -12,24 +12,22 @@
 
 ## Contents
 
-1. [Project and evidence links](#project-and-evidence-links)
+1. [Project Addresses](#2-project-addresses)
 2. [Functional design](#functional-design)
 3. [Verification and screenshots](#verification-and-screenshots)
 4. [Git and project ownership](#git-and-project-ownership)
 5. [Personal Software Process](#personal-software-process)
 6. [Challenges and rubric check](#challenges-and-rubric-check)
 
-## Project and evidence links
+## 2. Project Addresses
 
-| Item | Location |
-| --- | --- |
-| GitHub repository | [Folio source](https://github.com/832402123wuyiming/folio-address-book) |
-| Pull request | [Implementation PR](https://github.com/832402123wuyiming/folio-address-book/pull/1) |
-| GitHub Release | [Folio v1.0.0](https://github.com/832402123wuyiming/folio-address-book/releases/tag/v1.0.0) |
-| Code standards | [CODE_STANDARDS.md](CODE_STANDARDS.md) |
-| Full program walkthrough | [Download MP4](evidence/folio-walkthrough.mp4) |
-| Public deployment | [Folio on GitHub Pages](https://832402123wuyiming.github.io/folio-address-book/) |
-| Local execution | See the [README](README.md#run) |
+- **GitHub Repository**: `https://github.com/832402123wuyiming/folio-address-book`
+- **Release v1.0.0**: `https://github.com/832402123wuyiming/folio-address-book/releases/tag/v1.0.0`
+- **Merged Pull Request**: `https://github.com/832402123wuyiming/folio-address-book/pull/1`
+- **Code Standard**: `https://github.com/832402123wuyiming/folio-address-book/blob/main/CODE_STANDARDS.md`
+- **Operation Guide**: `https://github.com/832402123wuyiming/folio-address-book/blob/main/README.md#run`
+- **Live Demo (GitHub Pages)**: `https://832402123wuyiming.github.io/folio-address-book/`
+- **Demo Video (MP4)**: `https://832402123wuyiming.github.io/folio-address-book/blog/evidence/folio-walkthrough.mp4`
 
 ## Functional design
 
